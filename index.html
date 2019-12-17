@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project </title>
+    <style>
+    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
@@ -18,14 +20,25 @@
                     <option value="" disabled selected>Choose recipe...</option>
                 </select>
             </div>
-            <div class="col-4" id="recipe-result"></div>
-            <div class="container">
-                <div class="row" id="input"></div>
-                <table class="table table-bordereless" id="ingredient"></table>
+            <div class="col-4"></div>
+        </div>
+        <div class="container mt-5">
+            <div class="row" id="recipe-result"></div>
+            <div class="row mt-5" id="input-number"></div>
+            <div class="row">
+                <div class="col-6">
+                    <h4 id="text-ingredient" class="text-center">Ingredients</h4>
+                    <table class="table table-borderless" id="ingredient"></table>
+                </div>
+                <div class="col-6">
+                    <h4 id="text-instruction" class="text-center">Instructions</h4>
+                    <table class="table table-borderless" style="margin-top: 20px;" id="instruction"></table>
+                </div>
             </div>
         </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/project.js"></script>
 </body>
+
 </html>
