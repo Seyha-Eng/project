@@ -1,3 +1,4 @@
+//get url 
 function getURl() {
     var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
     return url;
@@ -24,6 +25,7 @@ function requestApi() {
         error: () => console.log("Cannot get data"),
     })
 }
+//get name of select option
 var allData = [];
 function chooseRecipe(recipe) {
     allData = recipe;
@@ -33,7 +35,9 @@ function chooseRecipe(recipe) {
     });
     $('#recipe').append(option);
 }
-//
+//get id of each element
+var quan = [];
+var oldGuest = 0;
 function getRecipe(id) {
     allData.forEach(item => {
         if (item.id == id) {
@@ -41,9 +45,12 @@ function getRecipe(id) {
             eachIngredient(item.ingredients);
             numberGuests(item.nbGuests);
             eachInstructions(item.instructions);
+            getQuantiy = item;
+            oldGuest = item.nbGuests;
         }
     });
 }
+//display recipe to html
 function eachRecipe(name, img) {
     var result = "";
     result += `
@@ -54,7 +61,7 @@ function eachRecipe(name, img) {
     `;
     $('#recipe-result').html(result);
 }
-//get ingredient
+//get ingredient display to html
 $('#text-ingredient').hide();
 function eachIngredient(ingredients) {
     result = "";
@@ -70,7 +77,7 @@ function eachIngredient(ingredients) {
     $("#ingredient").html(result);
     $('#text-ingredient').show();
 }
-//
+//get number of guests 
 function numberGuests(members) {
     var result = "";
     result += `
@@ -80,21 +87,22 @@ function numberGuests(members) {
             <form action="#">
                 <div class="input-group mb-3 border">
                     <div class="input-group-prepend">
-                        <button class="btn btn-light" id="minus" type="button">-</button>
+                        <button class="btn btn-primary" id="minus" type="button">-</button>
                     </div>
                     <input type="text" id="persons" width="10px" value="${members}" min="1" max="15" disabled
                         class="form-control text-center">
                     <div class="input-group-append">
-                        <button class="btn btn-light" id="plus" type="button">+</button>
+                        <button class="btn btn-success" id="plus" type="button">+</button>
                     </div>
                 </div>
             </form>
+            <hr>
         </div>
         <div class="col-3"></div>
     `;
     $("#input-number").html(result);
 }
-//
+//loop step of instruction display to html
 $('#text-instruction').hide();
 function eachInstructions(instructions) {
     var split = instructions.split('<step>');
@@ -108,21 +116,44 @@ function eachInstructions(instructions) {
         $('#text-instruction').show();
     }
 }
-//
+//icreases guest when click on button
 var inputValue;
 function increases(){
     var value = $("#persons").val();
     inputValue = parseInt(value) + 1;
     if (inputValue <= 15){
         $("#persons").val(inputValue);
+        computeQuantity($("#persons").val());
         
     }
 }
+//descreases guest when click on button
 function descreases(){
     var value = $("#persons").val();
     inputValue = parseInt(value) - 1;
     if (inputValue >= 1){
         $("#persons").val(inputValue);
+        computeQuantity($("#persons").val());
     }        
 }
-
+//comput the numbers of guest and display to html
+function computeQuantity(compute){
+    var quantity;
+    var newQuantity;
+    var result = "";
+    getQuantiy.ingredients.forEach(item => {
+    
+        quantity = item.quantity/oldGuest;
+        newQuantity = quantity*compute;
+        result += `
+        <tr>
+        <td><img src="${item.iconUrl}" style="width:50px"></td>
+        <td id='quantity'>${newQuantity}</td>
+        <td>${item.unit[0]}</td>
+        <td>${item.name}</td>
+        </tr>
+    `;
+    $("#ingredient").html(result);
+    })
+    
+ }
