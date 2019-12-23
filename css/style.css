@@ -1,0 +1,14 @@
+
+#img1, #img2, #img3{
+    width: 100%;
+}
+#line{
+    border-left: 1px solid black;
+    height: 300px;
+    position: relative;
+    left: 5%;
+       
+}
+#jumbotron{
+    margin-top: 15%;
+}

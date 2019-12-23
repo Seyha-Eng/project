@@ -3,6 +3,7 @@ function getURl() {
     var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
     return url;
 }
+
 $(document).ready(function () {
     requestApi();
     $('#recipe').on('change', () => {
@@ -16,6 +17,7 @@ $(document).ready(function () {
         })
     })
 });
+
 //request API
 function requestApi() {
     $.ajax({
@@ -63,6 +65,7 @@ function eachRecipe(name, img) {
 }
 //get ingredient display to html
 $('#text-ingredient').hide();
+$('#line').hide();
 function eachIngredient(ingredients) {
     result = "";
     ingredients.forEach(element => {
@@ -76,6 +79,7 @@ function eachIngredient(ingredients) {
     });
     $("#ingredient").html(result);
     $('#text-ingredient').show();
+    $('#line').show();
 }
 //get number of guests 
 function numberGuests(members) {
@@ -148,7 +152,7 @@ function computeQuantity(compute){
         result += `
         <tr>
         <td><img src="${item.iconUrl}" style="width:50px"></td>
-        <td id='quantity'>${newQuantity}</td>
+        <td id='quantity' class='text-danger'>${newQuantity}</td>
         <td>${item.unit[0]}</td>
         <td>${item.name}</td>
         </tr>

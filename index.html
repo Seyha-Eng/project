@@ -1,21 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project </title>
-    <style>
-    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <body>
+
+    <img src="img/menu.png" class="mx-auto d-block" style="width: 100%;">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/food1.png" alt="Los Angeles" id="img1">
+                <div class="carousel-caption">
+                    <h3 class="text-primary">Welcome</h3>
+                    <p>Our food</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/food2.png" alt="Chicago" id="img2">
+                <div class="carousel-caption">
+                    <h3>Welcome</h3>
+                    <p>Our food</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/food3.png" alt="New York" id="img3">
+                <div class="carousel-caption">
+                    <h3>Welcome</h3>
+                    <p>Our food</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <!--  -->
     <div class="container mt-5">
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
+                <div><h4>You can choose recipe of food here that you want to do.</h4></div>
                 <select class="form-control" id="recipe">
                     <option value="" disabled selected>Choose recipe...</option>
                 </select>
@@ -26,10 +67,11 @@
             <div class="row" id="recipe-result"></div>
             <div class="row mt-5" id="input-number"></div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-5">
                     <h4 id="text-ingredient" class="text-center">Ingredients</h4>
                     <table class="table table-borderless" id="ingredient"></table>
                 </div>
+                <div class="col-1" id="line"></div>
                 <div class="col-6">
                     <h4 id="text-instruction" class="text-center">Instructions</h4>
                     <table class="table table-borderless" style="margin-top: 20px;" id="instruction"></table>
@@ -37,6 +79,11 @@
             </div>
         </div>
     </div>
+    <footer class="jumbotron jumbotron-fluid text-center bg-dark" id="jumbotron">
+        <h6 class="text-light">Contact Information</h6>
+        <p class="text-light">Tel:086 878365</p>
+        <p class="text-light">Email:seyha.eng@gmail.com</p>
+    </footer>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/project.js"></script>
 </body>
