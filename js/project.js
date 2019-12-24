@@ -3,15 +3,17 @@ function getURl() {
     var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
     return url;
 }
-
+//function start process
 $(document).ready(function () {
     requestApi();
     $('#recipe').on('change', () => {
         var recipeId = $('#recipe').val();
         getRecipe(recipeId);
+        //click get value add from input
         $("#plus").on("click", function(){
             increases();
-        }); 
+        });
+        //click get value minus from input
         $("#minus").on('click', function(){
             descreases();
         })
@@ -37,22 +39,22 @@ function chooseRecipe(recipe) {
     });
     $('#recipe').append(option);
 }
-//get id of each element
+//get data of each element from API
 var quan = [];
 var oldGuest = 0;
 function getRecipe(id) {
     allData.forEach(item => {
         if (item.id == id) {
-            eachRecipe(item.name, item.iconUrl);
-            eachIngredient(item.ingredients);
-            numberGuests(item.nbGuests);
-            eachInstructions(item.instructions);
+            eachRecipe(item.name, item.iconUrl); //call from eachRecipe function
+            eachIngredient(item.ingredients); //call from eachIngredient function
+            numberGuests(item.nbGuests); // call from numberGuests function
+            eachInstructions(item.instructions); //call from eachInstructions function
             getQuantiy = item;
             oldGuest = item.nbGuests;
         }
     });
 }
-//display recipe to html
+//display recipe name and image to html
 function eachRecipe(name, img) {
     var result = "";
     result += `
@@ -64,8 +66,8 @@ function eachRecipe(name, img) {
     $('#recipe-result').html(result);
 }
 //get ingredient display to html
-$('#text-ingredient').hide();
-$('#line').hide();
+$('#text-ingredient').hide();   //hide of ingredient
+$('#line').hide();  //hide of line
 function eachIngredient(ingredients) {
     result = "";
     ingredients.forEach(element => {
@@ -78,8 +80,8 @@ function eachIngredient(ingredients) {
         `;
     });
     $("#ingredient").html(result);
-    $('#text-ingredient').show();
-    $('#line').show();
+    $('#text-ingredient').show();   //show of ingredient
+    $('#line').show();  //show of line
 }
 //get number of guests 
 function numberGuests(members) {
@@ -107,7 +109,7 @@ function numberGuests(members) {
     $("#input-number").html(result);
 }
 //loop step of instruction display to html
-$('#text-instruction').hide();
+$('#text-instruction').hide();  //hide of instruction
 function eachInstructions(instructions) {
     var split = instructions.split('<step>');
     var result = "";
@@ -117,7 +119,7 @@ function eachInstructions(instructions) {
     <p>${split[i]}</p>
     `;
         $('#instruction').html(result);
-        $('#text-instruction').show();
+        $('#text-instruction').show();  //show of instruction
     }
 }
 //icreases guest when click on button
@@ -153,7 +155,7 @@ function computeQuantity(compute){
         <tr>
         <td><img src="${item.iconUrl}" style="width:50px"></td>
         <td id='quantity' class='text-danger'>${newQuantity}</td>
-        <td>${item.unit[0]}</td>
+        <td class='text-success'>${item.unit[0]}</td>
         <td>${item.name}</td>
         </tr>
     `;

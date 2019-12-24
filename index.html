@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
 
+<body>
+    <!-- menu -->
     <img src="img/menu.png" class="mx-auto d-block" style="width: 100%;">
+    <!-- carousel  -->
     <div id="demo" class="carousel slide" data-ride="carousel">
         <ul class="carousel-indicators">
             <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -25,7 +28,7 @@
             <div class="carousel-item active">
                 <img src="img/food1.png" alt="Los Angeles" id="img1">
                 <div class="carousel-caption">
-                    <h3 class="text-primary">Welcome</h3>
+                    <h3>Welcome</h3>
                     <p>Our food</p>
                 </div>
             </div>
@@ -56,7 +59,10 @@
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
-                <div><h4>You can choose recipe of food here that you want to do.</h4></div>
+                <div>
+                    <h4 class="text-info">You can choose recipe of food here that you want to do.</h4>
+                </div>
+                <!-- get recipe form API -->
                 <select class="form-control" id="recipe">
                     <option value="" disabled selected>Choose recipe...</option>
                 </select>
@@ -64,22 +70,28 @@
             <div class="col-4"></div>
         </div>
         <div class="container mt-5">
-            <div class="row" id="recipe-result"></div>
+            <!-- class use for get name and image from API-->
+            <div class="row mt-5" id="recipe-result"></div>
+            <!-- class use for get input number -->
             <div class="row mt-5" id="input-number"></div>
             <div class="row">
                 <div class="col-5">
+                    <!-- class use for get ingredients from API -->
                     <h4 id="text-ingredient" class="text-center">Ingredients</h4>
                     <table class="table table-borderless" id="ingredient"></table>
                 </div>
+                <!-- class use to show line-->
                 <div class="col-1" id="line"></div>
                 <div class="col-6">
+                    <!-- class use for get instructions from API -->
                     <h4 id="text-instruction" class="text-center">Instructions</h4>
                     <table class="table table-borderless" style="margin-top: 20px;" id="instruction"></table>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="jumbotron jumbotron-fluid text-center bg-dark" id="jumbotron">
+    <!-- footer -->
+    <footer class="jumbotron jumbotron-fluid text-center bg-dark" id="footer">
         <h6 class="text-light">Contact Information</h6>
         <p class="text-light">Tel:086 878365</p>
         <p class="text-light">Email:seyha.eng@gmail.com</p>
